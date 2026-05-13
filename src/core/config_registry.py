@@ -957,7 +957,7 @@ _FIELD_DEFINITIONS: Dict[str, Dict[str, Any]] = {
     },
     "REPORT_SHOW_LLM_MODEL": {
         "title": "Show LLM Model in Reports",
-        "description": "Show the LLM model name in notification report footers. Disable to hide runtime model metadata.",
+        "description": "Show the LLM model name in notification report footers. Disable to hide runtime model metadata. This option only affects report rendering and does not change runtime provider/model/Base URL/LiteLLM routing, migration, persistence, or cleanup behavior.",
         "category": "notification",
         "data_type": "boolean",
         "ui_control": "switch",

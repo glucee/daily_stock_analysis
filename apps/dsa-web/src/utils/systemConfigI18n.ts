@@ -142,7 +142,7 @@ const fieldDescriptionMap: Record<string, string> = {
   GOTIFY_TOKEN: 'Gotify application token，系统通过 X-Gotify-Key Header 发送，不会放进 URL。',
   PUSHPLUS_TOKEN: 'PushPlus 推送令牌。',
   REPORT_SUMMARY_ONLY: '仅推送分析结果摘要，不包含个股详情。多股时适合快速浏览。',
-  REPORT_SHOW_LLM_MODEL: '在通知报告底部显示本次分析使用的 LLM 模型名称；关闭后隐藏运行时模型信息。',
+  REPORT_SHOW_LLM_MODEL: '在通知报告底部显示本次分析使用的 LLM 模型名称；关闭后隐藏运行时模型信息。仅影响展示，不会影响 provider/model/Base URL、运行时模型保存、迁移或清理。',
   MAX_WORKERS: '异步任务队列最大并发数。配置保存后，队列空闲时会自动应用；繁忙时延后生效。',
   SCHEDULE_TIME: '每日定时任务执行时间，格式为 HH:MM。',
   HTTP_PROXY: '网络代理地址，可留空。',

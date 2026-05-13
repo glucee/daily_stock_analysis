@@ -41,8 +41,10 @@ logger = logging.getLogger(__name__)
 _STOCK_LIST_FETCH_BLOCKED_HOSTS = frozenset(
     {
         "169.254.169.254",
+        "localhost",
         "metadata.google.internal",
         "100.100.100.200",
+        "fd00:ec2::254",
     }
 )
 _STOCK_LIST_FETCH_BLOCKED_IPS = frozenset(
@@ -50,6 +52,7 @@ _STOCK_LIST_FETCH_BLOCKED_IPS = frozenset(
     for value in (
         "169.254.169.254",
         "100.100.100.200",
+        "fd00:ec2::254",
     )
 )
 
@@ -291,7 +294,11 @@ def _is_blocked_stock_list_fetch_ip(ip_address: Any) -> bool:
     if mapped_ipv4 is not None:
         candidates.append(mapped_ipv4)
     return any(
-        candidate.is_link_local or candidate in _STOCK_LIST_FETCH_BLOCKED_IPS
+        candidate.is_link_local
+        or candidate.is_loopback
+        or candidate.is_private
+        or candidate.is_unspecified
+        or candidate in _STOCK_LIST_FETCH_BLOCKED_IPS
         for candidate in candidates
     )
 

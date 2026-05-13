@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - [修复] 修正分析报告 API 构建策略点位时数值字段未归一为字符串的问题，避免策略价格触发响应 DTO 类型校验失败。
 - [修复] Docker 启动入口自动修复 `data` / `logs` / `reports` 挂载目录权限并降权运行，文档化的 Compose `exec` 手动命令显式使用 `dsa` 用户，避免普通部署需要手动 `chown` / `chmod`。
 - [修复] Web 首页大盘复盘结果改由主内容滚动区承载，避免 loading 切换到长结果后下方报告区域被截断或无法继续滚动。
+- [改进] 通知报告新增 `REPORT_SHOW_LLM_MODEL` 开关，默认保留分析模型展示，关闭后可隐藏聚合、简报、单股和模板报告底部的运行时模型信息。
 
 ## [3.16.0] - 2026-05-10
 
